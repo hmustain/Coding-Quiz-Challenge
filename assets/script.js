@@ -41,4 +41,4 @@ var questions = [
         choices: ["JSON.stringify", "Prevent default", "JSON.parse", "Switch"],
         answer: "JSON.parse"
 },  
-],
+];
