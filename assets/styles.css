@@ -1,0 +1,27 @@
+:root {
+  --blue: #034788;
+  --white: whitesmoke;
+  --black: black;
+  --border: 3px solid black;
+  --border-grey: 3px solid grey;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 3%;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: center;
+  flex-wrap: ;
+}
+
+.header #title {
+    font-size: 300%;
+}
