@@ -10,27 +10,44 @@
 </head>
 
 <body>
-    <link rel="stylesheet" href="./assets/script.js" />
+
+    <header class="header">
+        <h1 id="title">Coding Quiz Challenge</h1>
+    </header>
+    <section>
+        <a href="#">Placeholder for Highscores</a>
+    </section>
+    <!-- wrapper -->
+    <section id="container">
+        <!-- currenttime -->
+        <div id="timer"></div>
+        <!-- questionsdiv -->
+        <div id="questions">
+            <div id="intro">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try to answer the following code related questions within the time limit. Keep in mind that incorrect
+                    answers will result in a ten point penalty!</p>
+                <!-- choicesu1 -->
+                <!-- starttime -->
+                <button id="start">Start Quiz</button>
+            </div>
+            <div id="ques">
+                <h3 id="questitle"></h3>
+                <ul id="choices"></ul>
+            </div>
+        </div>
+        <div class="hide" id="user-initials"> enter initial  <input id="input" type="text">
+            <button id="submit">Submit</button>
+        </div>
+        <div class="hide" id="high-score">
+            <ul>
+                
+            </ul>
+            <button>Go Back</button>
+            <button>Clear</button>
+        </div>
+    </section>
+    <script src="./assets/script.js"></script>
 </body>
-<header class="header">
-    <h1 id="title">Coding Quiz Challenge</h1>
-</header>
-<section>
-    <a href="#">Placeholder for Highscores</a>
-</section>
-<!-- wrapper -->
-<section id="container">
-    <!-- currenttime -->
-    <div id="timer"></div>
-    <!-- questionsdiv -->
-    <div id="questions">
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code related questions within the time limit. Keep in mind that incorrect answers will result in a ten point penalty!</p>
-        <!-- choicesu1 -->
-        <ul id="choices"></ul>
-        <!-- starttime -->
-        <button id="start">Start Quiz</button>
-    </div>
-</section>
 
 </html>

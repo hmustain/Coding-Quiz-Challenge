@@ -19,7 +19,7 @@
   border-bottom: var(--border);
   display: flex;
   justify-content: center;
-  flex-wrap: ;
+  flex-wrap: wrap ;
 }
 
 .header #title {
@@ -81,4 +81,8 @@ border-radius: .75em;
     background-color: green;
     cursor: pointer;
     box-shadow: 10px 5px 5px grey;
+}
+
+.hide {
+    display: none;
 }
