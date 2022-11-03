@@ -68,6 +68,7 @@ var submit = document.querySelector("#submit");
 
 // create a seconds left variable. i'm going to do 15 seconds / question for total of 120
 var secondsLeft = 120;
+var penalty = 15;
 var createUl = document.createElement("ul");
 
 // add even listener to start time
