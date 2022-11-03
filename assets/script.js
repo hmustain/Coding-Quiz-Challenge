@@ -63,6 +63,7 @@ var choices = document.querySelector("#choices");
 var userInitials = document.querySelector("#user-initials");
 var input = document.querySelector("#input");
 var submit = document.querySelector("#submit");
+var answers = document.querySelector("#answers");
 
 
 
@@ -120,6 +121,24 @@ function displayQuestions() {
         }
 
      
+}
+
+function compare(event) {
+        var answers = event.target;
+
+        if (answers.matches("li-choices")) {
+
+                var createDiv = document.createElement("div");
+                createDiv.setAttribute("id", "createDiv");
+
+        if (answers.textContent == questions[index].answer) {
+                score++;
+                createDiv.textContent = "That is Correct!"
+        } else {
+                secondsLeft = secondsLeft - penalty;
+                createDiv.textContent = "I'm sorry that is not correct!"
+        }
+        }
 }
 
 function quizOver() {
