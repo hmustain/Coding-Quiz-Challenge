@@ -67,7 +67,7 @@ var submit = document.querySelector("#submit");
 
 
 // create a seconds left variable. i'm going to do 15 seconds / question for total of 120
-var secondsLeft = 120;
+var secondsLeft = 10;
 var penalty = 15;
 var createUl = document.createElement("ul");
 
@@ -92,7 +92,7 @@ function setTime() {
                 if (secondsLeft === 0) {
                         clearInterval(timerInterval);
                         quizOver();
-                        timer.textContent = "Game Over!";
+                        timer.textContent = "";
                 }
         }, 1000);
 }
@@ -119,7 +119,31 @@ function displayQuestions() {
                 })
         }
 
+     
 }
 
+function quizOver() {
+        ques.innerHTML = "";
+        timer.innerHTML = "";
+
+        // create heading
+        var createH1 = document.createElement("h1");
+        createH1.setAttribute("id", "createH1");
+        createH1.textContent = "Game over! You have reached the end of the quiz."
+        ques.appendChild(createH1);
+
+        // create p
+        var creatP = document.createElement("p");
+        creatP.setAttribute("id", "createP");
+        ques.appendChild(creatP);
+
+        // if statement to calculate score
+        if (secondsLeft >= 0) {
+                var timeRemaining = secondsLeft;
+                creatP.textContent = "Your final score is: " + timeRemaining;
+                ques.appendChild(creatP);
+        }
+           
+   }
 
 
