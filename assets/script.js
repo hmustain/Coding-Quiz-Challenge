@@ -161,8 +161,8 @@ function quizOver() {
 
         // if statement to calculate score
         if (secondsLeft >= 0) {
-                var timeRemaining = secondsLeft;
-                creatP.textContent = "Your final score is: " + timeRemaining;
+                // var timeRemaining = secondsLeft;
+                creatP.textContent = "Your final score is: " + score;
                 ques.appendChild(creatP);
         }
            
