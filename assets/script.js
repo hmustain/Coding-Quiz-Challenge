@@ -179,8 +179,9 @@ function quizOver() {
         var user = input.value;
         var user = {
                 initials: userInitials.value.trim(),
-
-        }
+                score: score.value.trim(),
+        };
+        localStorage.setItem("user", JSON.stringify(user));
         })
    }
 
