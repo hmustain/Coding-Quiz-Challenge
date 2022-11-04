@@ -69,8 +69,8 @@ var validAnswer = document.querySelector("#valid-answer");
 
 
 // create a seconds left variable. i'm going to do 15 seconds / question for total of 120
-var secondsLeft = 10;
-var penalty = 15;
+var secondsLeft = 20;
+var penalty = 5;
 var createUl = document.createElement("ul");
 
 // add even listener to start time
@@ -104,6 +104,7 @@ function displayQuestions() {
         choices.innerHTML = choices.innerHTML + "<li class='li-choices'>" + questions[index].choices[3] + "</li>";
 
         var liChoices = document.querySelectorAll(".li-choices");
+        
 
         for (let i = 0; i < liChoices.length; i++) {
                 liChoices[i].addEventListener("click", function (event) {
@@ -113,8 +114,8 @@ function displayQuestions() {
                                 displayQuestions()
 
                         } else {
-                                ques.classList.add("hide")
-                                userInitials.classList.remove("hide")
+                              quizOver();
+                              clearInterval(timerInterval);
                         }
                 })
         }
@@ -134,17 +135,18 @@ function compare(event) {
                 console.log('this is the answer selected', questions[index].answer);
 
                 if (answers.textContent == questions[index].answer) {
-                        score++;
+                        score = score + 5;
                         console.log('the current score', score);
                         createDiv.textContent = "That is Correct!"
                 } else {
-                        secondsLeft = secondsLeft - penalty;
+                        score = score - penalty;
                         createDiv.textContent = "I'm sorry that is not correct!"
                 }
         }
 }
 
 function quizOver() {
+        
         ques.innerHTML = "";
         timer.innerHTML = "";
 
@@ -165,7 +167,7 @@ function quizOver() {
                 creatP.textContent = "Your final score is: " + score;
                 ques.appendChild(creatP);
         }
-           
+
    }
 
 
