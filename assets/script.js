@@ -166,7 +166,7 @@ function quizOver() {
                 // var timeRemaining = secondsLeft;
                 creatP.textContent = "Your final score is: " + score;
                 ques.appendChild(creatP);
-        }
+          }
 
    }
 
