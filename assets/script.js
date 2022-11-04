@@ -149,6 +149,7 @@ function quizOver() {
         
         ques.innerHTML = "";
         timer.innerHTML = "";
+        userInitials.classList.remove("hide");
 
         // create heading
         var createH1 = document.createElement("h1");
