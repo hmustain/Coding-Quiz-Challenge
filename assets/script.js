@@ -87,7 +87,7 @@ function setTime(event) {
         var timerInterval = setInterval(function () {
                 secondsLeft--;
                 timer.textContent = "Time: " + secondsLeft;
-                if (secondsLeft === 0) {
+                if (secondsLeft <= 0) {
                         clearInterval(timerInterval);
                         compare(event);
                         quizOver();
@@ -162,7 +162,7 @@ function quizOver() {
         ques.appendChild(creatP);
 
         // if statement to calculate score
-        if (secondsLeft >= 0) {
+        if (secondsLeft <= 0) {
                 // var timeRemaining = secondsLeft;
                 creatP.textContent = "Your final score is: " + score;
                 ques.appendChild(creatP);
