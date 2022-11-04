@@ -64,6 +64,7 @@ var userInitials = document.querySelector("#user-initials");
 var input = document.querySelector("#input");
 var submit = document.querySelector("#submit");
 var answers = document.querySelector("#answers");
+var validAnswer = document.querySelector("#valid-answer");
 
 
 
@@ -105,7 +106,8 @@ function displayQuestions() {
         var liChoices = document.querySelectorAll(".li-choices");
 
         for (let i = 0; i < liChoices.length; i++) {
-                liChoices[i].addEventListener("click", function () {
+                liChoices[i].addEventListener("click", function (event) {
+                        compare(event);
                         index++
                         if (index < questions.length) {
                                 displayQuestions()
@@ -123,9 +125,9 @@ function displayQuestions() {
 function compare(event) {
         var answers = event.target;
         console.log('The event target that I am trying to compare', answers);
-        console.log('answers.matches("li-choices")', answers.matches("li-choices"));
+        console.log('answers.matches(".li-choices")', answers.matches(".li-choices"));
 
-        if (answers.matches("li-choices")) {
+        if (answers.matches(".li-choices")) {
 
                 var createDiv = document.createElement("div");
                 createDiv.setAttribute("id", "createDiv");
