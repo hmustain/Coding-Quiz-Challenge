@@ -59,11 +59,11 @@
     text-decoration: underline;
 }
 
-/* #intro {
+.introduction {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-} */
+}
 
 #questions p {
     font-size: 150%;
