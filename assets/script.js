@@ -176,10 +176,11 @@ function quizOver() {
         submitButton.addEventListener("click", function(event) {
                 event.preventDefault();
         
+        console.log(input.value);
         var user = input.value;
         var user = {
-                initials: userInitials.value.trim(),
-                score: score.value.trim(),
+                initials: input.value.trim(),
+                score: score,
         };
         localStorage.setItem("user", JSON.stringify(user));
         })
