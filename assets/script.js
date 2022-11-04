@@ -139,7 +139,7 @@ function compare(event) {
                         console.log('the current score', score);
                         createDiv.textContent = "That is Correct!"
                 } else {
-                        score = score - penalty;
+                        secondsLeft = secondsLeft - penalty;
                         createDiv.textContent = "I'm sorry that is not correct!"
                 }
         }
