@@ -125,7 +125,7 @@ function displayQuestions() {
 function compare(event) {
         var answers = event.target;
         console.log('The event target that I am trying to compare', answers);
-        console.log('answers.matches(".li-choices")', answers.matches(".li-choices"));
+        // console.log('answers.matches(".li-choices")', answers.matches(".li-choices"));
 
         if (answers.matches(".li-choices")) {
 
