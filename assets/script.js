@@ -169,6 +169,19 @@ function quizOver() {
                 ques.appendChild(creatP);
           }
 
+
+        //   now i'm going to work on adding event listener for the submit button at the end of the quiz
+        var submitButton = document.querySelector("#submit");
+
+        submitButton.addEventListener("click", function(event) {
+                event.preventDefault();
+        
+        var user = input.value;
+        var user = {
+                initials: userInitials.value.trim(),
+
+        }
+        })
    }
 
 
