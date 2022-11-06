@@ -68,6 +68,7 @@ var validAnswer = document.querySelector("#valid-answer");
 
 
 
+
 // create a seconds left variable. i'm going to do 15 seconds / question for total of 120
 var secondsLeft = 20;
 var penalty = 5;
@@ -77,7 +78,7 @@ var createUl = document.createElement("ul");
 startTime.addEventListener("click", function (event) {
         setTime(event);
         displayQuestions();
-        intro.classList.add("hide")
+        intro.classList.add("hide");
 });
 
 
@@ -104,23 +105,23 @@ function displayQuestions() {
         choices.innerHTML = choices.innerHTML + "<li class='li-choices'>" + questions[index].choices[3] + "</li>";
 
         var liChoices = document.querySelectorAll(".li-choices");
-        
+
 
         for (let i = 0; i < liChoices.length; i++) {
                 liChoices[i].addEventListener("click", function (event) {
                         compare(event);
-                        index++
+                        index++;
                         if (index < questions.length) {
                                 displayQuestions()
 
                         } else {
-                              quizOver();
-                              clearInterval(timerInterval);
+                                quizOver();
+                                clearInterval(timerInterval);
                         }
                 })
         }
 
-     
+
 }
 
 function compare(event) {
@@ -130,34 +131,35 @@ function compare(event) {
 
         if (answers.matches(".li-choices")) {
 
-                var createDiv = document.createElement("div");
-                createDiv.setAttribute("id", "createDiv");
+                // var createDiv = document.createElement("div");
+                // createDiv.setAttribute("id", "createDiv");
                 console.log('this is the answer selected', questions[index].answer);
 
-                if (answers.textContent == questions[index].answer) {
+                if (answers.textContent === questions[index].answer) {
                         score = score + 5;
                         console.log('the current score', score);
-                        createDiv.textContent = "That is Correct!"
+                        validAnswer.textContent = "That is Correct!";
                 } else {
                         secondsLeft = secondsLeft - penalty;
-                        createDiv.textContent = "I'm sorry that is not correct!"
+                        validAnswer.textContent = "I'm sorry that is not correct!";
                 }
         }
 }
 
 function quizOver() {
-        
+
         ques.innerHTML = "";
         timer.innerHTML = "";
         userInitials.classList.remove("hide");
+        validAnswer.textContent = "";
 
         // create heading
         var createH1 = document.createElement("h1");
         createH1.setAttribute("id", "createH1");
-        createH1.textContent = "Game over! You have reached the end of the quiz."
+        createH1.textContent = "Game over! You have reached the end of the quiz.";
         ques.appendChild(createH1);
 
-        // create p
+        // create paragraph
         var creatP = document.createElement("p");
         creatP.setAttribute("id", "createP");
         ques.appendChild(creatP);
@@ -167,23 +169,23 @@ function quizOver() {
                 // var timeRemaining = secondsLeft;
                 creatP.textContent = "Your final score is: " + score;
                 ques.appendChild(creatP);
-          }
+        }
 
 
         //   now i'm going to work on adding event listener for the submit button at the end of the quiz
         var submitButton = document.querySelector("#submit");
 
-        submitButton.addEventListener("click", function(event) {
+        submitButton.addEventListener("click", function (event) {
                 event.preventDefault();
-        
-        console.log(input.value);
-        var user = input.value;
-        var user = {
-                initials: input.value.trim(),
-                score: score,
-        };
-        localStorage.setItem("user", JSON.stringify(user));
-        })
-   }
+
+                console.log(input.value);
+                var user = input.value;
+                var user = {
+                        initials: input.value.trim(),
+                        score: score,
+                };
+                localStorage.setItem("user", JSON.stringify(user));
+        });
+}
 
 
