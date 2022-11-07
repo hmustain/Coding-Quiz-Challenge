@@ -43,6 +43,8 @@ var questions = [
         },
 ];
 
+var userHighScore = [];
+
 // Declare score and questions variables
 // score = 0 because we start w/ a score of 0
 var score = 0;
@@ -76,6 +78,14 @@ var answers = document.querySelector("#answers");
 // this is a variable for when you select an answer, you get text content to come up correct or incorrect a friend of mine helped me with this
 var validAnswer = document.querySelector("#valid-answer");
 
+var timerInterval = ""
+var highScore = document.querySelector("#high-score");
+var userHighScoreEl = document.querySelector("#user-high-score");
+
+var goBackButton = document.querySelector("#go-back");
+var clearButton = document.querySelector("#clear");
+
+
 
 
 
@@ -96,7 +106,7 @@ startTime.addEventListener("click", function (event) {
 
 function setTime(event) {
         // create var w/ setInterval function?
-        var timerInterval = setInterval(function () {
+         timerInterval = setInterval(function () {
                 secondsLeft--;
                 timer.textContent = "Time: " + secondsLeft;
                 if (secondsLeft <= 0) {
@@ -110,6 +120,7 @@ function setTime(event) {
 
 // tutor helped me from line 112-137
 function displayQuestions() {
+        validAnswer.textContent = "";
         questitle.textContent = questions[index].question;
         choices.innerHTML = "<li class='li-choices'>" + questions[index].choices[0] + "</li>";
         choices.innerHTML = choices.innerHTML + "<li class='li-choices'>" + questions[index].choices[1] + "</li>";
@@ -124,11 +135,13 @@ function displayQuestions() {
                         compare(event);
                         index++;
                         if (index < questions.length) {
-                                displayQuestions()
+                                setTimeout(displayQuestions, 1000)
+                                // displayQuestions()
 
                         } else {
-                                quizOver();
                                 clearInterval(timerInterval);
+                                setTimeout(quizOver, 1000);
+                                // quizOver();
                         }
                 })
         }
@@ -167,23 +180,23 @@ function quizOver() {
         validAnswer.textContent = "";
 
         // create heading
-        var createH1 = document.createElement("h1");
-        createH1.setAttribute("id", "createH1");
-        createH1.textContent = "Game over! You have reached the end of the quiz.";
-        ques.appendChild(createH1);
+        var createQuizOverH1 = document.createElement("h1");
+        createQuizOverH1.setAttribute("id", "createQuizOverH1");
+        createQuizOverH1.textContent = "Game over! You have reached the end of the quiz.";
+        ques.appendChild(createQuizOverH1);
 
         // create paragraph
-        var creatP = document.createElement("p");
-        creatP.setAttribute("id", "createP");
-        ques.appendChild(creatP);
+        var creatQuizOverP = document.createElement("p");
+        creatQuizOverP.setAttribute("id", "createQuizOverP");
+        ques.appendChild(creatQuizOverP);
 
         // if statement to calculate score
         // need to get help from tutor here
-        if (secondsLeft <= 0) {
+        // if (secondsLeft <= 0) {
                 // var timeRemaining = secondsLeft;
-                creatP.textContent = "Your final score is: " + score;
-                ques.appendChild(creatP);
-        }
+                creatQuizOverP.textContent = "Your final score is: " + score;
+                ques.appendChild(creatQuizOverP);
+        // }
 
 
 // went back to previous lessons for help and then askBCS helped me finish it
@@ -191,15 +204,38 @@ function quizOver() {
 
         submitButton.addEventListener("click", function (event) {
                 event.preventDefault();
-
+                userInitials.classList.add("hide");
+                highScore.classList.remove("hide");
                 console.log(input.value);
                 var user = input.value;
                 var user = {
                         initials: input.value.trim(),
                         score: score,
                 };
-                localStorage.setItem("user", JSON.stringify(user));
+                userHighScore.push(user);
+                localStorage.setItem("user", JSON.stringify(userHighScore));
+                displayHighScore();
         });
 }
 
+// tutor helped me with the rest of the lines here to get user high score to display
+function displayHighScore () {
+        if (localStorage.getItem("user")) {
+                userHighScore = JSON.parse(localStorage.getItem("user"));
+        } 
+        userHighScoreEl.textContent = ""
+        for (let i = 0; i < userHighScore.length; i++) {
+        var userHighScoreLi = document.createElement("li")
+        userHighScoreLi.textContent = userHighScore[i].initials + " - " + userHighScore[i].score
+        userHighScoreEl.appendChild(userHighScoreLi); 
+        }
+}
 
+goBackButton.addEventListener("click", function () {
+        location.reload();
+}) 
+
+clearButton.addEventListener("click", function() {
+        localStorage.clear();
+        displayHighScore();
+})
