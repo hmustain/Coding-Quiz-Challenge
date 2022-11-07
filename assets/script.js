@@ -178,6 +178,7 @@ function quizOver() {
         ques.appendChild(creatP);
 
         // if statement to calculate score
+        // need to get help from tutor here
         if (secondsLeft <= 0) {
                 // var timeRemaining = secondsLeft;
                 creatP.textContent = "Your final score is: " + score;
