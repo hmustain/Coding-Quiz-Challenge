@@ -145,9 +145,9 @@ padding: 2%;
 }
 
 #user-high-score {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 }
 
 #go-back, #clear {
@@ -155,7 +155,8 @@ padding: 2%;
 }
 
 #user-high-score li {
-    margin: 5%;
+    margin left: 5%;
     padding-left: 3%;
     font-size: 20px;
+    list-style: none;
 }

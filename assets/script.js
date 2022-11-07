@@ -78,6 +78,7 @@ var answers = document.querySelector("#answers");
 // this is a variable for when you select an answer, you get text content to come up correct or incorrect a friend of mine helped me with this
 var validAnswer = document.querySelector("#valid-answer");
 
+// the remaining variables my tutor had me/helped me create when trying to add to local storage
 var timerInterval = ""
 var highScore = document.querySelector("#high-score");
 var userHighScoreEl = document.querySelector("#user-high-score");
@@ -212,6 +213,7 @@ function quizOver() {
                         initials: input.value.trim(),
                         score: score,
                 };
+                userHighScore = JSON.parse(localStorage.getItem("user")) || [];
                 userHighScore.push(user);
                 localStorage.setItem("user", JSON.stringify(userHighScore));
                 displayHighScore();
