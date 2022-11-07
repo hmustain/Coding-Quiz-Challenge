@@ -59,6 +59,11 @@
     text-decoration: underline;
 }
 
+#valid-answer {
+    /* text-align: center; */
+    align-content: center;
+}
+
 .introduction {
     display: flex;
     justify-content: center;
