@@ -28,9 +28,7 @@ Instructions on how to use:
 - When you see the box to enter your initials, enter your initials and select submit
 - to see where you initials and score are being stored open up chrome dev tools and go to applications and look in the local storage folder.
 
-```md
 ![alt text](./assets/Images/coding-quiz-challenge-screenshot.png)
-```
 
 ## Credits
 Credit to our instructor, students in the class, TA's, tutor, and AskBCS.
