@@ -143,3 +143,20 @@ padding: 2%;
     cursor: pointer;
     background-color: green;
 }
+
+#user-high-score {
+    /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+}
+
+#go-back, #clear {
+    align-items: center;
+}
+
+#user-high-score li {
+    margin left: 5%;
+    padding-left: 3%;
+    font-size: 20px;
+    list-style: none;
+}
