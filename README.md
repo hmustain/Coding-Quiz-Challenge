@@ -46,5 +46,5 @@ https://www.youtube.com/
 ---
 
 ## Link to deployed site
+https://hmustain.github.io/Coding-Quiz-Challenge/
 
-<!-- come back and update link when you have it -->
