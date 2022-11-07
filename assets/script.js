@@ -1,4 +1,4 @@
-// Let's start with creating a variable with an array to store our questions
+// array of questions
 
 var questions = [
         {
@@ -47,32 +47,43 @@ var questions = [
 // score = 0 because we start w/ a score of 0
 var score = 0;
 // questions asked starts at 0
-var questionsAsked = 0;
-
+// var questionsAsked = 0;
+// tutor helped me here, this vague title is tied to the questions being asked
 var index = 0
 
 // Declare variables
+// timer
 var timer = document.querySelector("#timer");
+// first button on intro to start time
 var startTime = document.querySelector("#start");
-var questionsQuiz = document.querySelector("#questions");
-var container = document.querySelector("#container");
+// var questionsQuiz = document.querySelector("#questions");
+// var container = document.querySelector("#container");
+// variable for the intro to the quiz, later set to hide words (tutor helped me)
 var intro = document.querySelector("#intro");
+// var for questions (tutor helped me)
 var ques = document.querySelector("#ques");
 var questitle = document.querySelector("#questitle");
+// variable for possible answers to the questions
 var choices = document.querySelector("#choices");
+// variable for user initials field at end of quiz.. later set to remove hidden feature once quiz is over, tutor helped me with this
 var userInitials = document.querySelector("#user-initials");
+// variable for user input when they are putting their initials in to be stored to the local storage. AskBCS helped me with this
 var input = document.querySelector("#input");
+// variable for the submit button 
 var submit = document.querySelector("#submit");
+// variable for correct answers this is used to determine if answer was correct score points, if wrong deduct time
 var answers = document.querySelector("#answers");
+// this is a variable for when you select an answer, you get text content to come up correct or incorrect a friend of mine helped me with this
 var validAnswer = document.querySelector("#valid-answer");
 
 
 
 
-// create a seconds left variable. i'm going to do 15 seconds / question for total of 120
-var secondsLeft = 20;
+// seconds left determines how many seconds we start the quiz with
+var secondsLeft = 41;
+// variable to set the penalty
 var penalty = 5;
-var createUl = document.createElement("ul");
+// var createUl = document.createElement("ul");
 
 // add even listener to start time
 startTime.addEventListener("click", function (event) {
@@ -97,6 +108,7 @@ function setTime(event) {
         }, 1000);
 }
 
+// tutor helped me from line 112-137
 function displayQuestions() {
         questitle.textContent = questions[index].question;
         choices.innerHTML = "<li class='li-choices'>" + questions[index].choices[0] + "</li>";
@@ -124,6 +136,7 @@ function displayQuestions() {
 
 }
 
+// combination of help from instructor, askBCS and a friend
 function compare(event) {
         var answers = event.target;
         console.log('The event target that I am trying to compare', answers);
@@ -172,7 +185,7 @@ function quizOver() {
         }
 
 
-        //   now i'm going to work on adding event listener for the submit button at the end of the quiz
+// went back to previous lessons for help and then askBCS helped me finish it
         var submitButton = document.querySelector("#submit");
 
         submitButton.addEventListener("click", function (event) {
